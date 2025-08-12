@@ -5,6 +5,9 @@
     Layout = "~/Views/AdminLayout/Layout.cshtml";
 }
 
+@{
+    int count = 0;
+}
 
 <table class="table table-bordered table-hover">
     <tr>
@@ -14,15 +17,16 @@
     </tr>
 
     @foreach(var item in Model){
+        count++;
         <tr>
-            <td>@item.CategoryId</td>
+            <td>@count</td>
             <td>@item.CategoryName</td>
             <td>
-                <a href="#" class="btn btn-outline-danger">Sil</a>
-                <a href="#" class="btn btn-outline-info">Güncelle</a>
+                <a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-outline-danger">Sil</a>
+                <a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-outline-info">Güncelle</a>
             </td>
         </tr>
     }
 </table>
 
-<a href="#" class="btn btn-outline-primary">Yeni Kategori Oluştur</a>
+<a href="/Category/CreateCategory" class="btn btn-outline-primary">Yeni Kategori Oluştur</a>
