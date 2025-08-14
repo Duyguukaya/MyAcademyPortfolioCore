@@ -1,15 +1,26 @@
-﻿namespace Portfolio.Web.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Portfolio.Web.Entities
 {
     public class Project
     {
         public int ProjectId { get; set; }
-        public int ProjectName { get; set; }
-        public int Description { get; set; }
-        public int ImageUrl { get; set; }
-        public int GithubUrl { get; set; }
 
+        [MinLength(5,ErrorMessage ="Proje adı en az 5 karakter olmalıdır.")]
+        [MaxLength(50,ErrorMessage = "Proje adı en fazla 50 karakter olmalıdır.")]
+        [Required(ErrorMessage ="Proje adı boş bırakılamaz.")]
+        public string ProjectName { get; set; }
+        [Required(ErrorMessage = "Proje açıklaması boş bırakılamaz.")]
+        public string Description { get; set; }
+        [Required(ErrorMessage = "Proje görsel url boş bırakılamaz.")]
+        public string ImageUrl { get; set; }
+        [Required(ErrorMessage = "Github url boş bırakılamaz.")]
+        public string GithubUrl { get; set; }
+
+      
+        [Required(ErrorMessage = "Kategori boş bırakılamaz.")]
+        public int CategoryId { get; set; }
         //navigation property
-       // public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
     }
 }

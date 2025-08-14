@@ -6,7 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 //IOC Container
 
-builder.Services.AddScoped<PortfolioContext>();
+//builder.Services.AddScoped<PortfolioContext>();
+
+builder.Services.AddDbContext<PortfolioContext>();
 
 builder.Services.AddControllersWithViews();
 

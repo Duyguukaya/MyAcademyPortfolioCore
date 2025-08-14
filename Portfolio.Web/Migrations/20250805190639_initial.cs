@@ -11,118 +11,118 @@ namespace Portfolio.Web.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Abouts",
-                columns: table => new
-                {
-                    AboutId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    WebSite = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Graduation = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsAvailable = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Abouts", x => x.AboutId);
-                });
+        //    migrationBuilder.CreateTable(
+        //        name: "Abouts",
+        //        columns: table => new
+        //        {
+        //            AboutId = table.Column<int>(type: "int", nullable: false)
+        //                .Annotation("SqlServer:Identity", "1, 1"),
+        //            ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+        //            Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+        //            Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+        //            BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+        //            WebSite = table.Column<string>(type: "nvarchar(max)", nullable: false),
+        //            PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+        //            City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+        //            Graduation = table.Column<string>(type: "nvarchar(max)", nullable: false),
+        //            Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+        //            IsAvailable = table.Column<bool>(type: "bit", nullable: false)
+        //        },
+        //        constraints: table =>
+        //        {
+        //            table.PrimaryKey("PK_Abouts", x => x.AboutId);
+        //        });
 
-            migrationBuilder.CreateTable(
-                name: "Banners",
-                columns: table => new
-                {
-                    BannerId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CoverImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NameSurname = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Banners", x => x.BannerId);
-                });
+        //    migrationBuilder.CreateTable(
+        //        name: "Banners",
+        //        columns: table => new
+        //        {
+        //            BannerId = table.Column<int>(type: "int", nullable: false)
+        //                .Annotation("SqlServer:Identity", "1, 1"),
+        //            CoverImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+        //            NameSurname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+        //            Title = table.Column<string>(type: "nvarchar(max)", nullable: false)
+        //        },
+        //        constraints: table =>
+        //        {
+        //            table.PrimaryKey("PK_Banners", x => x.BannerId);
+        //        });
 
-            migrationBuilder.CreateTable(
-                name: "Categories",
-                columns: table => new
-                {
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryName = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Categories", x => x.CategoryId);
-                });
+        //    migrationBuilder.CreateTable(
+        //        name: "Categories",
+        //        columns: table => new
+        //        {
+        //            CategoryId = table.Column<int>(type: "int", nullable: false)
+        //                .Annotation("SqlServer:Identity", "1, 1"),
+        //            CategoryName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+        //        },
+        //        constraints: table =>
+        //        {
+        //            table.PrimaryKey("PK_Categories", x => x.CategoryId);
+        //        });
 
-            migrationBuilder.CreateTable(
-                name: "Educations",
-                columns: table => new
-                {
-                    EducationId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    SchoolName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Departmant = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StartYear = table.Column<int>(type: "int", nullable: false),
-                    EndYear = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Educations", x => x.EducationId);
-                });
+        //    migrationBuilder.CreateTable(
+        //        name: "Educations",
+        //        columns: table => new
+        //        {
+        //            EducationId = table.Column<int>(type: "int", nullable: false)
+        //                .Annotation("SqlServer:Identity", "1, 1"),
+        //            SchoolName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+        //            Departmant = table.Column<string>(type: "nvarchar(max)", nullable: false),
+        //            StartYear = table.Column<int>(type: "int", nullable: false),
+        //            EndYear = table.Column<string>(type: "nvarchar(max)", nullable: true),
+        //            Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+        //        },
+        //        constraints: table =>
+        //        {
+        //            table.PrimaryKey("PK_Educations", x => x.EducationId);
+        //        });
 
-            migrationBuilder.CreateTable(
-                name: "Experiences",
-                columns: table => new
-                {
-                    ExperienceId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StartYear = table.Column<int>(type: "int", nullable: false),
-                    EndYear = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Company = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Experiences", x => x.ExperienceId);
-                });
+        //    migrationBuilder.CreateTable(
+        //        name: "Experiences",
+        //        columns: table => new
+        //        {
+        //            ExperienceId = table.Column<int>(type: "int", nullable: false)
+        //                .Annotation("SqlServer:Identity", "1, 1"),
+        //            Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+        //            StartYear = table.Column<int>(type: "int", nullable: false),
+        //            EndYear = table.Column<string>(type: "nvarchar(max)", nullable: true),
+        //            Company = table.Column<string>(type: "nvarchar(max)", nullable: false),
+        //            City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+        //            Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
+        //        },
+        //        constraints: table =>
+        //        {
+        //            table.PrimaryKey("PK_Experiences", x => x.ExperienceId);
+        //        });
 
-            migrationBuilder.CreateTable(
-                name: "Projects",
-                columns: table => new
-                {
-                    ProjectId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ProjectName = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<int>(type: "int", nullable: false),
-                    ImageUrl = table.Column<int>(type: "int", nullable: false),
-                    GithubUrl = table.Column<int>(type: "int", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Projects", x => x.ProjectId);
-                    table.ForeignKey(
-                        name: "FK_Projects_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
-                        principalColumn: "CategoryId",
-                        onDelete: ReferentialAction.Cascade);
-                });
+        //    migrationBuilder.CreateTable(
+        //        name: "Projects",
+        //        columns: table => new
+        //        {
+        //            ProjectId = table.Column<int>(type: "int", nullable: false)
+        //                .Annotation("SqlServer:Identity", "1, 1"),
+        //            ProjectName = table.Column<int>(type: "int", nullable: false),
+        //            Description = table.Column<int>(type: "int", nullable: false),
+        //            ImageUrl = table.Column<int>(type: "int", nullable: false),
+        //            GithubUrl = table.Column<int>(type: "int", nullable: false),
+        //            CategoryId = table.Column<int>(type: "int", nullable: false)
+        //        },
+        //        constraints: table =>
+        //        {
+        //            table.PrimaryKey("PK_Projects", x => x.ProjectId);
+        //            table.ForeignKey(
+        //                name: "FK_Projects_Categories_CategoryId",
+        //                column: x => x.CategoryId,
+        //                principalTable: "Categories",
+        //                principalColumn: "CategoryId",
+        //                onDelete: ReferentialAction.Cascade);
+        //        });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Projects_CategoryId",
-                table: "Projects",
-                column: "CategoryId");
+        //    migrationBuilder.CreateIndex(
+        //        name: "IX_Projects_CategoryId",
+        //        table: "Projects",
+        //        column: "CategoryId");
         }
 
         /// <inheritdoc />
