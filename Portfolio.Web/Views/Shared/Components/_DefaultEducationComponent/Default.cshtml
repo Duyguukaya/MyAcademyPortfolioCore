@@ -1,0 +1,20 @@
+﻿@model List<Education>
+@*
+	_DefaultEducationComponent
+*@
+
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+    <h3 class="resume-title">Eğitim Hayatım</h3>
+
+    @foreach(var item in Model){
+    <div class="resume-item pb-0">
+        <h4>@item.SchoolName</h4>
+        <ul>
+            <li>@item.StartYear - @item.EndYear</li>
+            <li>@item.Departmant</li>
+            <li>@item.Description</li>
+        </ul>
+    </div>
+    }
+
+</div>
