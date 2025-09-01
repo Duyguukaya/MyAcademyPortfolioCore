@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Portfolio.Web.Context;
 
@@ -11,9 +12,11 @@ using Portfolio.Web.Context;
 namespace Portfolio.Web.Migrations
 {
     [DbContext(typeof(PortfolioContext))]
-    partial class PortfolioContextModelSnapshot : ModelSnapshot
+    [Migration("20250901213439_skillchange")]
+    partial class skillchange
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -197,8 +200,9 @@ namespace Portfolio.Web.Migrations
                     b.Property<string>("EndYear")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("StartYear")
-                        .HasColumnType("int");
+                    b.Property<string>("StartYear")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
