@@ -33,7 +33,10 @@ namespace Portfolio.Web.Controllers
             ViewBag.reviewAverage = context.Testimonials.Any() ? context.Testimonials.Average(x => x.Review).ToString("0.0") : "değerlendirme yapılmadı";
             ViewBag.maxReviewOwner = context.Testimonials.OrderByDescending(x => x.Review).Select(x => x.Name).FirstOrDefault();
 
-
+            ViewBag.skillCount = context.Skills.Count();
+            ViewBag.testimonalCount = context.Testimonials.Count();
+            ViewBag.experienceCount = context.Experiences.Count();
+            ViewBag.totalmessage = context.UserMessages.Count();
             return View();
         }
     }
