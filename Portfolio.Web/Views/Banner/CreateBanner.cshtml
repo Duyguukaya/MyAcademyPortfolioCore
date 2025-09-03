@@ -1,0 +1,20 @@
+﻿@model Banner
+@{
+    ViewData["Title"] = "Öne Çıkan Ekle";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<form method="post">
+    <div class="form-group">
+    <label>Fotoğraf</label>
+        <input type="text" class="form-control" asp-for="CoverImageUrl" />
+    <br />
+    <label>İsim Soyisim</label>
+        <input type="text" class="form-control" asp-for="NameSurname" />
+    <br />
+    <label>Ünvan</label>
+        <input type="text" class="form-control" asp-for="Title" />
+    </div>
+    <button type="submit" class="btn btn-secondary">Ekle</button>
+</form>
+

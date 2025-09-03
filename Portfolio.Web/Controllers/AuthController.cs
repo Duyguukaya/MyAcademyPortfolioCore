@@ -25,8 +25,8 @@ namespace Portfolio.Web.Controllers
                 return View(model);
             }
 
-            var user = context.Users.FirstOrDefault(x=>x.UserName==model.UserName && x.Password==model.Password);
-            if(user is null)
+            var user = context.Users.FirstOrDefault(x => x.UserName == model.UserName && x.Password == model.Password);
+            if (user is null)
             {
                 ModelState.AddModelError("", "Kullanıcı adı veya şifre hatalı");
                 return View(model);
@@ -38,7 +38,7 @@ namespace Portfolio.Web.Controllers
                 new Claim("fullName",string.Join(" ",user.FirstName,user.LastName))
             };
 
-            var claimsIdentity = new ClaimsIdentity(claims,CookieAuthenticationDefaults.AuthenticationScheme);
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var authProperties = new AuthenticationProperties
             {
                 ExpiresUtc = DateTime.UtcNow.AddMinutes(30),
@@ -53,6 +53,13 @@ namespace Portfolio.Web.Controllers
 
             return RedirectToAction("Index", "Statistics");
 
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            HttpContext.Session.Remove("UserName");
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Default");
         }
     }
 }

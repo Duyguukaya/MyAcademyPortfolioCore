@@ -1,0 +1,43 @@
+﻿@model About
+@{
+    ViewData["Title"] = "Güncelleme Sayfası";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<form method="post">
+    <input type="hidden" asp-for="AboutId" />
+    <div class="form-group">
+        <label>Fotoğraf Url</label>
+        <input type="text" class="form-control" asp-for="ImageUrl" />
+        <br />
+        <label>Başlık</label>
+        <input type="text" class="form-control" asp-for="Title" />
+        <br />
+        <label>Açıklama</label>
+        <input type="text" class="form-control" asp-for="Description" />
+        <br />
+        <label>Doğum Tarihi</label>
+        <input type="date" class="form-control" asp-for="BirthDate" />
+        <br />
+        <label>Web Sitesi</label>
+        <input type="text" class="form-control" asp-for="WebSite" />
+        <br />
+        <label>Telefon Numarası</label>
+        <input type="text" class="form-control" asp-for="PhoneNumber" />
+        <br />
+        <label>Şehir</label>
+        <input type="text" class="form-control" asp-for="City" />
+        <br />
+        <label>Derece</label>
+        <input type="text" class="form-control" asp-for="Graduation" />
+        <br />
+        <label>E mail</label>
+        <input type="text" class="form-control" asp-for="Email" />
+        <br />
+        <label>Freelance Çalışmaya Uygunluk</label>
+        <input type="text" class="form-control" asp-for="IsAvailable" />
+    </div>
+
+    <button class="btn btn-primary">Güncelle</button>
+</form>
+

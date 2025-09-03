@@ -1,0 +1,17 @@
+﻿@model Skill
+@{
+    ViewData["Title"] = "Yeni Yetenek Oluştur";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+
+<form method="post">
+    <div class="form-group">
+        <label>Yetenek Adı</label>
+        <input type="text" asp-for="Title" class="form-control" />
+        <label>Yetenek Yüzdesi</label>
+        <input type="text" asp-for="Percentage" class="form-control" />
+    </div>
+
+    <button class="btn btn-success">Ekle</button>
+</form>

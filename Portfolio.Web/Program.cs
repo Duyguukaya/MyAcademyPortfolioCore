@@ -12,10 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<PortfolioContext>();
 
-builder.Services.AddControllersWithViews(opt =>
-{
-    opt.Filters.Add(new AuthorizeFilter());
-});
+builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddSession(options =>
 {
@@ -23,6 +20,12 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+
+builder.Services.AddControllersWithViews(opt =>
+{
+    opt.Filters.Add(new AuthorizeFilter());
+});
+
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
 {
@@ -52,9 +55,11 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 
+app.UseSession();
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{controller=Default}/{action=Index}/{id?}")
     .WithStaticAssets();
 
 

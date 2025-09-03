@@ -1,0 +1,35 @@
+﻿@model List<Banner>
+@{
+    ViewData["Title"] = "Banner Listeleme";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+@{
+    int count = 0;
+}
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>#</th>
+        <th>Fotoğraf</th>
+        <th>İsim Soyisim</th>
+        <th>Ünvan</th>
+        <th>işlemler</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.CoverImageUrl</td>
+            <td>@item.NameSurname</td>
+            <td>@item.Title</td>
+            <td>
+                <a href="/Banner/DeleteBanner/@item.BannerId" class="btn btn-outline-danger">Sil</a>
+                <a href="/Banner/UpdateBanner/@item.BannerId" class="btn btn-outline-info">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<a href="/Banner/CreateBanner" class="btn btn-outline-secondary">Ekle</a>
