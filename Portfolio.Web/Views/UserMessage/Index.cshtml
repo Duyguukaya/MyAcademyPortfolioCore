@@ -1,0 +1,63 @@
+﻿@model List<UserMessage>
+@{
+    ViewData["Title"] = "Gelen Mesajlar";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+
+
+<div class="row">
+    @foreach (var msg in Model)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm @(msg.IsRead ? "border-secondary" : "border-primary")">
+                <div class="card-body">
+                    <h5 class="card-title">@msg.Subject</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@msg.Name (@msg.Email)</h6>
+                    
+                    @if (msg.IsRead)
+{
+    <p class="card-text text-muted">@msg.MessageBody</p>
+    <span class="badge bg-secondary">Okundu</span>
+    
+    <form asp-action="Delete" method="post" class="d-inline">
+        <input type="hidden" name="id" value="@msg.UserMessageId" />
+        <button type="submit" class="btn btn-sm btn-danger"
+                onclick="return confirm('Bu mesajı silmek istediğine emin misin?');">
+            Sil
+        </button>
+    </form>
+}
+else
+{
+    <form asp-action="MarkAsRead" method="post" class="mb-2">
+        <input type="hidden" name="id" value="@msg.UserMessageId" />
+        <button type="button" 
+                class="btn btn-sm btn-primary" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#msg-@msg.UserMessageId">
+            Mesajı Aç
+        </button>
+        <button type="submit" class="btn btn-sm btn-success">Okundu İşaretle</button>
+    </form>
+
+    <form asp-action="Delete" method="post" class="d-inline">
+        <input type="hidden" name="id" value="@msg.UserMessageId" />
+        <button type="submit" class="btn btn-sm btn-danger"
+                onclick="return confirm('Bu mesajı silmek istediğine emin misin?');">
+            Sil
+        </button>
+    </form>
+
+    <div class="collapse mt-2" id="msg-@msg.UserMessageId">
+        <div class="card card-body">
+            @msg.MessageBody
+        </div>
+    </div>
+}
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
