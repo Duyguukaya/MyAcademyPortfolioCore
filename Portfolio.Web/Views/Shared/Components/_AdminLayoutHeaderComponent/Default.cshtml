@@ -157,50 +157,21 @@
                                     <i class="ti ti-user"></i> Profile
                                 </button>
                             </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link"
-                                        id="drp-t2"
-                                        data-bs-toggle="tab"
-                                        data-bs-target="#drp-tab-2"
-                                        type="button"
-                                        role="tab"
-                                        aria-controls="drp-tab-2"
-                                        aria-selected="false">
-                                    <i class="ti ti-settings"></i> Ayarlar
-                                </button>
-                            </li>
+                     
                         </ul>
                         <div class="tab-content" id="mysrpTabContent">
                             <div class="tab-pane fade show active" id="drp-tab-1" role="tabpanel" aria-labelledby="drp-t1" tabindex="0">
-                                <a href="#!" class="dropdown-item">
+                                <a href="#"
+                                   class="dropdown-item"
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#profileEditModal">
                                     <i class="ti ti-edit-circle"></i>
                                     <span>Profili Düzenle</span>
                                 </a>
+
                                 <a href="/Auth/Logout" class="dropdown-item">
                                     <i class="ti ti-power"></i>
                                     <span>Çıkış Yap</span>
-                                </a>
-                            </div>
-                            <div class="tab-pane fade" id="drp-tab-2" role="tabpanel" aria-labelledby="drp-t2" tabindex="0">
-                                <a href="#!" class="dropdown-item">
-                                    <i class="ti ti-help"></i>
-                                    <span>Support</span>
-                                </a>
-                                <a href="#!" class="dropdown-item">
-                                    <i class="ti ti-user"></i>
-                                    <span>Account Settings</span>
-                                </a>
-                                <a href="#!" class="dropdown-item">
-                                    <i class="ti ti-lock"></i>
-                                    <span>Privacy Center</span>
-                                </a>
-                                <a href="#!" class="dropdown-item">
-                                    <i class="ti ti-messages"></i>
-                                    <span>Feedback</span>
-                                </a>
-                                <a href="#!" class="dropdown-item">
-                                    <i class="ti ti-list"></i>
-                                    <span>History</span>
                                 </a>
                             </div>
                         </div>
@@ -210,3 +181,42 @@
         </div>
     </div>
 </header>
+
+<!-- Profil Düzenleme Modal -->
+<div class="modal fade" id="profileEditModal" tabindex="-1" aria-labelledby="profileEditModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="profileEditModalLabel">Profili Düzenle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+
+            <div class="modal-body">
+                <form method="post" action="/Account/UpdateProfile">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Kullanıcı Adı</label>
+                        <input type="text" class="form-control" id="username" name="Username" value="@ViewBag.username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="currentPassword" class="form-label">Mevcut Şifre</label>
+                        <input type="password" class="form-control" id="currentPassword" name="CurrentPassword" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="newPassword" class="form-label">Yeni Şifre</label>
+                        <input type="password" class="form-control" id="newPassword" name="NewPassword">
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Yeni Şifre (Tekrar)</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="ConfirmPassword">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
